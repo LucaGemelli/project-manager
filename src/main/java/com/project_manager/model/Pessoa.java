@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "pessoa")
@@ -22,8 +22,7 @@ public class Pessoa {
     private String nome;
 
     @Column(name = "datanascimento")
-    @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
     @Column(name = "cpf", length = 14)
     private String cpf;

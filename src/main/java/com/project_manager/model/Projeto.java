@@ -1,11 +1,11 @@
 package com.project_manager.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
-import jakarta.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "projeto")
@@ -22,16 +22,13 @@ public class Projeto {
     private String nome;
 
     @Column(name = "data_inicio")
-    @Temporal(TemporalType.DATE)
-    private Date dataInicio;
+    private LocalDate dataInicio;
 
     @Column(name = "data_previsao_fim")
-    @Temporal(TemporalType.DATE)
-    private Date dataPrevisaoFim;
+    private LocalDate dataPrevisaoFim;
 
     @Column(name = "data_fim")
-    @Temporal(TemporalType.DATE)
-    private Date dataFim;
+    private LocalDate dataFim;
 
     @Column(name = "descricao", length = 5000)
     private String descricao;

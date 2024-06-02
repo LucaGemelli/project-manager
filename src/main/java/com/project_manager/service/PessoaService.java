@@ -29,8 +29,13 @@ public class PessoaService {
     }
 
     @Transactional
-    public void delete(Long id) {
-        pessoaRepository.deleteById(id);
+    public Boolean delete(Long id) {
+        if (pessoaRepository.existsById(id)) {
+            pessoaRepository.deleteById(id);
+            return true;
+        } else {
+            throw new IllegalArgumentException("Error ao Deletar a Pessoa");
+        }
     }
 
     @Transactional

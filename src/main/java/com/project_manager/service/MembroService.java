@@ -40,7 +40,20 @@ public class MembroService {
 
     @Transactional
     public void delete(Long id) {
-        membrosRepository.deleteById(id);
+        if (membrosRepository.existsById(id)) {
+            membrosRepository.deleteById(id);
+        } else {
+            throw new IllegalArgumentException("Membro não encontrada.");
+        }
+    }
+
+    @Transactional
+    public Membro update(Membro membro) {
+        if (membrosRepository.existsById(membro.getId())) {
+            return membrosRepository.save(membro);
+        } else {
+            throw new IllegalArgumentException("Membro não encontrada.");
+        }
     }
 
     @Transactional
