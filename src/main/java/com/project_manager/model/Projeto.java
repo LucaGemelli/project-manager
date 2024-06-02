@@ -1,5 +1,6 @@
 package com.project_manager.model;
 
+import com.project_manager.model.enumeration.StatusProjeto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,8 +34,9 @@ public class Projeto {
     @Column(name = "descricao", length = 5000)
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 45)
-    private String status;
+    private StatusProjeto status;
 
     @Column(name = "orcamento")
     private Float orcamento;

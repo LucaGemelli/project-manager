@@ -2,6 +2,7 @@ package com.project_manager.service;
 
 import com.project_manager.model.Pessoa;
 import com.project_manager.model.Projeto;
+import com.project_manager.model.enumeration.StatusProjeto;
 import com.project_manager.repository.ProjetoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ProjetoServiceTest {
 
@@ -35,8 +36,8 @@ public class ProjetoServiceTest {
         List<Projeto> projetos = new ArrayList<>();
         LocalDate dataInicio = LocalDate.of(2023, 1, 1);
         LocalDate dataPrevisaoFim = LocalDate.of(2023, 6, 30);
-        projetos.add(new Projeto(1L, "Projeto A", dataInicio, dataPrevisaoFim, null, "Descrição Projeto A", "Em Análise", 10000.0F, "Baixo Risco", new Pessoa()));
-        projetos.add(new Projeto(2L, "Projeto B", dataInicio, dataPrevisaoFim, null, "Descrição Projeto B", "Iniciado", 15000.0F, "Médio Risco", new Pessoa()));
+        projetos.add(new Projeto(1L, "Projeto A", dataInicio, dataPrevisaoFim, null, "Descrição Projeto A", StatusProjeto.EM_ANALISE, 10000.0F, "Baixo Risco", new Pessoa()));
+        projetos.add(new Projeto(2L, "Projeto B", dataInicio, dataPrevisaoFim, null, "Descrição Projeto B", StatusProjeto.INICIADO, 15000.0F, "Médio Risco", new Pessoa()));
         when(projetoRepository.findAll()).thenReturn(projetos);
         List<Projeto> resultado = projetoService.findAll();
         assertEquals(2, resultado.size());
@@ -49,7 +50,7 @@ public class ProjetoServiceTest {
         Long projetoId = 1L;
         LocalDate dataInicio = LocalDate.of(2023, 1, 1);
         LocalDate dataPrevisaoFim = LocalDate.of(2023, 6, 30);
-        Projeto projeto = new Projeto(projetoId, "Projeto A", dataInicio, dataPrevisaoFim, null, "Descrição Projeto A", "Em Análise", 10000.0F, "Baixo Risco", new Pessoa());
+        Projeto projeto = new Projeto(projetoId, "Projeto A", dataInicio, dataPrevisaoFim, null, "Descrição Projeto A", StatusProjeto.EM_ANALISE, 10000.0F, "Baixo Risco", new Pessoa());
         when(projetoRepository.findById(projetoId)).thenReturn(Optional.of(projeto));
         Optional<Projeto> resultado = projetoService.findById(projetoId);
         assertEquals("Projeto A", resultado.orElseThrow().getNome());

@@ -1,6 +1,7 @@
 package com.project_manager.service;
 
 import com.project_manager.model.Projeto;
+import com.project_manager.model.enumeration.StatusProjeto;
 import com.project_manager.repository.ProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,13 +34,15 @@ public class ProjetoService {
         Optional<Projeto> projetoOpt = projetoRepository.findById(id);
         if (projetoOpt.isPresent()) {
             Projeto projeto = projetoOpt.get();
-            if (!projeto.getStatus().equalsIgnoreCase("iniciado") &&
-                    !projeto.getStatus().equalsIgnoreCase("em andamento") &&
-                    !projeto.getStatus().equalsIgnoreCase("encerrado")) {
+            if (projeto.getStatus() != StatusProjeto.INICIADO &&
+                    projeto.getStatus() != StatusProjeto.EM_ANDAMENTO &&
+                    projeto.getStatus() != StatusProjeto.ENCERRADO) {
                 projetoRepository.deleteById(id);
             } else {
                 throw new IllegalArgumentException("Projeto não pode ser excluído nos status: iniciado, em andamento ou encerrado.");
             }
+        } else {
+            throw new IllegalArgumentException("Projeto não encontrado.");
         }
     }
 

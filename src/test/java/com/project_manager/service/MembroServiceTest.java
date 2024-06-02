@@ -3,6 +3,7 @@ package com.project_manager.service;
 import com.project_manager.model.Membro;
 import com.project_manager.model.Pessoa;
 import com.project_manager.model.Projeto;
+import com.project_manager.model.enumeration.StatusProjeto;
 import com.project_manager.repository.MembroRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -108,7 +109,7 @@ public class MembroServiceTest {
     }
 
     private Projeto mockProjeto() {
-        return new Projeto(1L, "Projeto A", LocalDate.of(2023, 6, 30), LocalDate.of(2023, 6, 30), null, "Descrição Projeto A", "Em Análise", 10000.0F, "Baixo Risco", new Pessoa());
+        return new Projeto(1L, "Projeto A", LocalDate.of(2023, 6, 30), LocalDate.of(2023, 6, 30), null, "Descrição Projeto A", StatusProjeto.EM_ANALISE, 10000.0F, "Baixo Risco", new Pessoa());
     }
 
     private Pessoa mockPessoa() {
