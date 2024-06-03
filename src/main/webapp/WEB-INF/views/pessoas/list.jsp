@@ -1,12 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Pessoas</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/popper.js/2.11.6/umd/popper.min.js"></script>
 </head>
 <body>
 
@@ -36,8 +39,8 @@
                     <td>${pessoa.gerente ? 'Sim' : 'Não'}</td>
                     <td>
                         <!-- Botões de ação -->
-                        <a href="/pessoas/editar/${pessoa.id}" class="btn btn-primary btn-sm">Editar</a>
-                        <a href="/pessoas/excluir/${pessoa.id}" class="btn btn-danger btn-sm">Excluir</a>
+                        <a href="<c:url value='/pessoas/editar/${pessoa.id}' />" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="<c:url value='/pessoas/excluir/${pessoa.id}' />" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -46,10 +49,5 @@
     <!-- Link para adicionar nova pessoa -->
     <a href="/pessoas/novo" class="btn btn-success">Nova Pessoa</a>
 </div>
-
-<script src="<c:url value="/webjars/jquery/3.6.0/jquery.min.js" />"></script>
-<script src="<c:url value="/webjars/popper.js/2.11.6/umd/popper.min.js" />"></script>
-<script src="<c:url value="/webjars/bootstrap/5.3.0/js/bootstrap.min.js" />"></script>
-
 </body>
 </html>
