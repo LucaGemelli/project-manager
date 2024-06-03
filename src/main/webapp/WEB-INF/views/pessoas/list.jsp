@@ -47,7 +47,6 @@
     <a href="/pessoas/novo" class="btn btn-success">Nova Pessoa</a>
 </div>
 
-<!-- Bootstrap JS (opcional, dependendo do uso de componentes JS) -->
 <script src="<c:url value="/webjars/jquery/3.6.0/jquery.min.js" />"></script>
 <script src="<c:url value="/webjars/popper.js/2.11.6/umd/popper.min.js" />"></script>
 <script src="<c:url value="/webjars/bootstrap/5.3.0/js/bootstrap.min.js" />"></script>

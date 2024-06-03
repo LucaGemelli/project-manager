@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Membros</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />">
+    <link rel="stylesheet" href="<c:url value='/webjars/bootstrap/5.3.0/css/bootstrap.min.css' />">
 </head>
 <body>
 
@@ -39,9 +39,9 @@
 </div>
 
 <!-- Bootstrap JS (opcional, dependendo do uso de componentes JS) -->
-<script src="<c:url value="/webjars/jquery/3.6.0/jquery.min.js" />"></script>
-<script src="<c:url value="/webjars/popper.js/2.11.6/umd/popper.min.js" />"></script>
-<script src="<c:url value="/webjars/bootstrap/5.3.0/js/bootstrap.min.js" />"></script>
+<script src="<c:url value='/webjars/jquery/3.6.0/jquery.min.js' />"></script>
+<script src="<c:url value='/webjars/popper.js/2.11.6/umd/popper.min.js' />"></script>
+<script src="<c:url value='/webjars/bootstrap/5.3.0/js/bootstrap.min.js' />"></script>
 
 </body>
 </html>

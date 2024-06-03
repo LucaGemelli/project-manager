@@ -1,12 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Projetos</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -38,8 +39,8 @@
                     <td>${projeto.status}</td>
                     <td>
                         <!-- Botões de ação -->
-                        <a href="/projetos/editar/${projeto.id}" class="btn btn-primary btn-sm">Editar</a>
-                        <a href="/projetos/excluir/${projeto.id}" class="btn btn-danger btn-sm">Excluir</a>
+                        <a href="<c:url value='/projetos/editar/${projeto.id}' />" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="<c:url value='/projetos/excluir/${projeto.id}' />" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -48,11 +49,5 @@
     <!-- Link para adicionar novo projeto -->
     <a href="/projetos/novo" class="btn btn-success">Novo Projeto</a>
 </div>
-
-<!-- Bootstrap JS (opcional, dependendo do uso de componentes JS) -->
-<script src="<c:url value="/webjars/jquery/3.6.0/jquery.min.js" />"></script>
-<script src="<c:url value="/webjars/popper.js/2.11.6/umd/popper.min.js" />"></script>
-<script src="<c:url value="/webjars/bootstrap/5.3.0/js/bootstrap.min.js" />"></script>
-
 </body>
 </html>

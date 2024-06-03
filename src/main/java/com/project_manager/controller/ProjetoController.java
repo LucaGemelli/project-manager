@@ -30,7 +30,7 @@ public class ProjetoController {
     @GetMapping("/novo")
     public String novoProjeto(Model model) {
         model.addAttribute("projeto", new Projeto());
-        return "projetos/form";
+        return "projetos/novoProjeto";
     }
 
     @PostMapping
