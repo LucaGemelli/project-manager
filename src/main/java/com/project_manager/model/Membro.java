@@ -1,10 +1,9 @@
 package com.project_manager.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
-import jakarta.persistence.*;
 
 @Entity
 @Table(name = "membros")
